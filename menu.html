@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>전체 메뉴</title>
+  <link type="text/css" rel="stylesheet" href="css/menu.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="p-4">
+  <div class="menu-container">
+    <div class="menu-left">
+      <ul id="menuList">
+        <li class="active" data-target="menu1">정보보호란?</li>
+        <li data-target="menu2">교육</li>
+        <li data-target="menu3">자료</li>
+        <li data-target="menu6">알림/소통</li>
+        <li data-target="menu7">마이페이지</li>
+      </ul>
+    </div>
+    <div class="menu-right">
+      <!-- menu1 -->
+      <div class="menu-section active" id="menu1">
+        <div class="menu-subtitle">정보보호란?</div>
+        <ul>
+          <li>정보보호</li>
+          <li>개인정보보호법</li>
+        </ul>
+        <div class="menu-subtitle">교육</div>
+        <ul>
+          <li>개인정보보호위원회</li>
+          <li>개인정보분쟁조정위원회</li>
+        </ul>
+        <div class="menu-subtitle">자료</div>
+        <ul>
+          <li>일반국민</li>
+          <li>사업자</li>
+          <li>어린이/청소년</li>
+        </ul>
+      </div>
+
+      <!-- menu2 -->
+      <div class="menu-section" id="menu2">
+        <div class="menu-subtitle">알림/소통</div>
+        <ul>
+          <li>나의 정보 확인</li>
+          <li>민원 신청</li>
+        </ul>
+      </div>
+
+      <!-- menu3 -->
+      <div class="menu-section" id="menu3">
+        <div class="menu-subtitle">마이페이지</div>
+        <ul>
+          <li>위탁/제공 내역</li>
+          <li>보호조치 안내</li>
+        </ul>
+      </div>
+
+      <!-- menu4~7는 필요 시 추가 -->
+    </div>
+  </div>
+
+  <script>
+    // 좌측 메뉴 클릭 이벤트
+    document.querySelectorAll('#menuList li').forEach(item => {
+      item.addEventListener('click', function () {
+        // 좌측 active 표시
+        document.querySelectorAll('#menuList li').forEach(li => li.classList.remove('active'));
+        this.classList.add('active');
+
+        // 우측 메뉴 전환
+        const target = this.getAttribute('data-target');
+        document.querySelectorAll('.menu-section').forEach(section => section.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>개인정보보호위원회 메뉴 샘플</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" rel="stylesheet" href="css/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--header-->
+  <div class="container-fluid menu-container">
+    <div class="menu-box">
+      <a href='menu1.html' class="nav-link text-dark text-decoration-none">정보보호란?</a>
+      <div class="menu-dropdown">
+        <a href="#">정의 보기</a>
+        <a href="#">관련 단어</a>
+        <a href="#">예문 보기</a>
+      </div>
+    </div>
+    <div class="menu-box">
+      교육
+      <div class="menu-dropdown">
+        <a href="#">정의 보기</a>
+        <a href="#">관련 단어</a>
+        <a href="#">예문 보기</a>
+      </div>
+    </div>
+    <div class="menu-box">
+      자료
+      <div class="menu-dropdown">
+        <a href="#">정의 보기</a>
+        <a href="#">관련 단어</a>
+        <a href="#">예문 보기</a>
+      </div>
+    </div>
+    <div class="menu-box">
+      알림/소통
+      <div class="menu-dropdown">
+        <a href="#">정의 보기</a>
+        <a href="#">관련 단어</a>
+        <a href="#">예문 보기</a>
+      </div>
+    </div>
+    <div class="menu-box">
+      마이페이지
+      <div class="menu-dropdown">
+        <a href="#">정의 보기</a>
+        <a href="#">관련 단어</a>
+        <a href="#">예문 보기</a>
+      </div>
+    </div>
+    <div class="menu-box" data-bs-toggle="modal" data-bs-target="#menuModal">
+      <img src="image/menu-bar.png" alt="메뉴" style="width: 40px; height: 40px; display: block; margin: 0 auto;">
+    </div>
+
+    <!-- 모달 구조 -->
+    <div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">전체 메뉴</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+          </div>
+          <div class="modal-body p-0" style="height: 500px;">
+            <!-- 다른 HTML 페이지를 불러오는 iframe -->
+            <iframe src="menu.html" width="100%" height="100%" style="border: none;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <!-- 사이드 메뉴 -->
+      <div class="col-md-3 border-end">
+        <h5 class="fw-bold mb-3">메뉴</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" onclick="showContent('content1')">개요</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showContent('content2')">법적근거</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showContent('content3')">역할 및 기능</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 콘텐츠 영역 -->
+      <div class="col-md-9">
+        <div id="content1" class="content-box">
+          <h4>개요</h4>
+          <p>개인정보보호위원회는 국민의 개인정보를 보호하고, 개인정보의 적정한 처리를 도모하기 위해 설립된 중앙행정기관입니다.</p>
+        </div>
+        <div id="content2" class="content-box d-none">
+          <h4>법적근거</h4>
+          <p>개인정보보호법 제7조에 따라 개인정보보호위원회가 설치되며, 독립성과 전문성을 보장받습니다.</p>
+        </div>
+        <div id="content3" class="content-box d-none">
+          <h4>역할 및 기능</h4>
+          <ul>
+            <li>개인정보 정책 수립 및 조정</li>
+            <li>법령 해석 및 제도 개선</li>
+            <li>침해 신고 및 분쟁 조정</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 스크립트: 콘텐츠 변경 -->
+  <script>
+    function showContent(id) {
+      // 모든 콘텐츠 숨기기
+      document.querySelectorAll('.content-box').forEach(function (div) {
+        div.classList.add('d-none');
+      });
+      // 선택한 콘텐츠 보이기
+      document.getElementById(id).classList.remove('d-none');
+
+      // 메뉴 강조
+      document.querySelectorAll('.nav-link').forEach(function (link) {
+        link.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+
+</html>
