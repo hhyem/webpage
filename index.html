@@ -6,476 +6,395 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>정보보호 웹페이지</title>
   <link type="text/css" rel="stylesheet" href="css/main.css">
+  <link type="text/css" rel="stylesheet" href="css/menu.css?v=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <!-- head에 추가 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.24/fullpage.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.24/fullpage.min.js"></script>
 </head>
 
 <body>
 
-  <!-- header
-  <div class="container-fluid menu-container">
-    <div class="menu-box">
-      정보보호란?
-      <div class="menu-dropdown">
-        <a href="#">정의 보기</a>
-        <a href="#">관련 단어</a>
-        <a href="#">예문 보기</a>
-      </div>
-    </div>
-    <div class="menu-box">
-      교육
-      <div class="menu-dropdown">
-        <a href="#">정의 보기</a>
-        <a href="#">관련 단어</a>
-        <a href="#">예문 보기</a>
-      </div>
-    </div>
-    <div class="menu-box">
-      자료
-      <div class="menu-dropdown">
-        <a href="#">정의 보기</a>
-        <a href="#">관련 단어</a>
-        <a href="#">예문 보기</a>
-      </div>
-    </div>
-    <div class="menu-box">
-      알림/소통
-      <div class="menu-dropdown">
-        <a href="#">정의 보기</a>
-        <a href="#">관련 단어</a>
-        <a href="#">예문 보기</a>
-      </div>
-    </div>
-    <div class="menu-box">
-      마이페이지
-      <div class="menu-dropdown">
-        <a href="#">정의 보기</a>
-        <a href="#">관련 단어</a>
-        <a href="#">예문 보기</a>
-      </div>
-    </div>
-    <div class="menu-box" data-bs-toggle="modal" data-bs-target="#menuModal">
-      <img src="image/menu-bar.png" alt="메뉴" style="width: 40px; height: 40px; display: block; margin: 0 auto;">
+  <!-- TOP 버튼 감싸는 div -->
+  <div id="topButtonWrapper" class="position-fixed bottom-0 end-0 m-4 d-none" style="z-index: 999;">
+    <img src="image/up-arrow.png" id="topButton" class="img-fluid" style="width: 60px; height: auto; cursor: pointer;"
+      alt="맨 위로" onclick="scrollToTop()">
+  </div>
+  
+  <!-- 정보보호 Hero 영역 -->
+  <section class="hero-section-secure">
+    <!-- 메뉴 버튼 (오른쪽 상단) -->
+    <div class="menu-button" data-bs-toggle="modal" data-bs-target="#menuModal">
+      <img src="image/menu-bar.png" alt="메뉴">
     </div>
 
-    <!-- 모달 구조 -->
-  <!--<div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">전체 메뉴</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
-          </div>
-          <div class="modal-body p-0" style="height: 500px;">
-            <!-- 다른 HTML 페이지를 불러오는 iframe -->
-  <!--<iframe src="menu.html" width="100%" height="100%" style="border: none;"></iframe>
-          </div>
+    <!-- 로고 및 텍스트 -->
+    <div class="secure-header-logo">InfoSecure,</div>
+    <div class="secure-subtext">
+      당신의 정보, 얼마나 안전한가요?<br>
+      우리는 더 나은 보호를 위해 지금도 움직이고 있습니다.
+    </div>
+    <div class="secure-keywords">
+      개인정보 보호 · 안전한 인터넷 사용 · 사이버 보안 · 데이터 주권
+    </div>
+  </section>
+
+  <!-- 메뉴 모달 -->
+  <div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">전체 메뉴</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+        </div>
+        <div class="modal-body p-0" style="height: 500px;">
+          <iframe src="menu.html" width="100%" height="100%" style="border: none;"></iframe>
         </div>
       </div>
     </div>
-  </div> -->
-<!-- 전체 화면 배경 GIF -->
-<section class="hero-section">
-  <!-- 배경 이미지 -->
-  <!-- <img src="image/main_conputer.gif" alt="배경" class="hero-bg-img"> -->
-
-  <!-- 중앙 이미지 -->
-  <div class="center-image">
-    <img src="image/main_conputer.gif" alt="메인 이미지">
   </div>
 
-  <!-- 우상단 메뉴 이미지 -->
-  <div class="menu-button" data-bs-toggle="modal" data-bs-target="#menuModal">
-    <img src="image/menu-bar.png" alt="메뉴">
-  </div>
+  <section class="container-fluid section-fullscreen bg-light">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
 
-  <!-- 홈페이지 소개 -->
-  <div class="intro-box">
-    <p>이 웹사이트는 개인정보 보호에 대한 올바른 이해를 돕기 위해 제작되었습니다.</p>
-  </div>
-</section>
-
-<!-- 메뉴 모달 -->
-<div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">전체 메뉴</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
-      </div>
-      <div class="modal-body p-0" style="height: 500px;">
-        <iframe src="menu.html" width="100%" height="100%" style="border: none;"></iframe>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <div class="container mt-5">
-    <div class="row bg-light p-4 rounded align-items-center" style="min-height: 500px; background-color: #e6f2ff;">
-
-
-      <!-- 왼쪽 6: 슬라이드 고정 크기 + 하단 텍스트 -->
-      <div class="col-lg-7">
-        <div class="card shadow-sm overflow-hidden" style="height: 350px;">
-          <div id="infoCarousel" class="carousel slide h-100" data-bs-ride="carousel">
-            <div class="carousel-inner h-100">
-              <!-- 슬라이드 1 -->
-              <div class="carousel-item active h-100">
-                <img src="image/slide_blog.png" class="d-block w-100 h-100 object-fit-cover" alt="경고 이미지">
+        <!-- 왼쪽 7: 슬라이드 고정 크기 -->
+        <div class="col-lg-7 d-flex justify-content-center align-items-center">
+          <div class="card shadow-sm overflow-hidden" style="height: 350px;">
+            <div id="infoCarousel" class="carousel slide h-100" data-bs-ride="carousel">
+              <div class="carousel-inner h-100">
+                <div class="carousel-item active h-100">
+                  <img src="image/slide_blog.png" class="d-block w-100 h-100 object-fit-cover" alt="경고 이미지">
+                </div>
+                <div class="carousel-item h-100">
+                  <img src="image/slide_privacypotal.png" class="d-block w-100 h-100 object-fit-cover" alt="경고 이미지2">
+                </div>
+                <div class="carousel-item h-100">
+                  <img src="image/slide_privacypotal2.png" class="d-block w-100 h-100 object-fit-cover" alt="경고 이미지3">
+                </div>
               </div>
-              <!-- 슬라이드 2 -->
-              <div class="carousel-item h-100">
-                <img src="image/slide_privacypotal.png" class="d-block w-100 h-100 object-fit-cover" alt="경고 이미지2">
-              </div>
-              <!-- 슬라이드 3 -->
-              <div class="carousel-item h-100">
-                <img src="image/slide_privacypotal2.png" class="d-block w-100 h-100 object-fit-cover" alt="경고 이미지2">
-              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#infoCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#infoCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
             </div>
-
-            <!-- 슬라이드 컨트롤 -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#infoCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#infoCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </button>
           </div>
         </div>
-      </div>
 
-      <!-- 오른쪽 4: 안내 버튼 -->
-      <div class="col-lg-5 d-flex flex-column justify-content-center h-100">
-        <div class="d-flex flex-column justify-content-between h-100 gap-3 py-4">
-          <a href="https://www.privacy.go.kr/front/contents/cntntsView.do?contsNo=45" target="_blacnk"
-            class="btn btn-light d-flex align-items-center gap-2 px-3 py-3 shadow-sm flex-fill">
-            🛡 개인정보침해 신고센터
-          </a>
-          <a href="https://www.privacy.go.kr/front/contents/cntntsView.do?contsNo=107" target="_blacnk"
-            class="btn btn-light d-flex align-items-center gap-2 px-3 py-3 shadow-sm flex-fill">
-            👤 개인정보배움터
-          </a>
-          <a href="https://www.privacy.go.kr/front/contents/cntntsView.do?contsNo=246" target="_blacnk"
-            class="btn btn-light d-flex align-items-center gap-2 px-3 py-3 shadow-sm flex-fill">
-            📄 털린 내 정보 찾기
-          </a>
-          <a href="https://www.privacy.go.kr/front/contents/cntntsView.do?contsNo=192" target="_blacnk"
-            class="btn btn-light d-flex align-items-center gap-2 px-3 py-3 shadow-sm flex-fill">
-            📧 웹사이트 회원탈퇴
-          </a>
-          <a href="https://mydatasafe.kr/" target="_blacnk"
-            class="btn btn-light d-flex align-items-center gap-2 px-3 py-3 shadow-sm flex-fill">
-            🧹 어린이 서비스
-          </a>
+        <!-- 오른쪽 5: 안내 버튼 -->
+        <div class="col-lg-5 d-flex align-items-center">
+          <div class="d-flex flex-column justify-content-between gap-3 py-4 w-100">
+            <a href="https://www.privacy.go.kr/front/contents/cntntsView.do?contsNo=45" target="_blank"
+              class="btn btn-light d-flex align-items-center gap-2 px-3 py-3 shadow-sm flex-fill">
+              🛡 개인정보침해 신고센터
+            </a>
+            <a href="https://www.privacy.go.kr/front/contents/cntntsView.do?contsNo=107" target="_blank"
+              class="btn btn-light d-flex align-items-center gap-2 px-3 py-3 shadow-sm flex-fill">
+              👤 개인정보배움터
+            </a>
+            <a href="https://www.privacy.go.kr/front/contents/cntntsView.do?contsNo=246" target="_blank"
+              class="btn btn-light d-flex align-items-center gap-2 px-3 py-3 shadow-sm flex-fill">
+              📄 털린 내 정보 찾기
+            </a>
+            <a href="https://www.privacy.go.kr/front/contents/cntntsView.do?contsNo=192" target="_blank"
+              class="btn btn-light d-flex align-items-center gap-2 px-3 py-3 shadow-sm flex-fill">
+              📧 웹사이트 회원탈퇴
+            </a>
+            <a href="https://mydatasafe.kr/" target="_blank"
+              class="btn btn-light d-flex align-items-center gap-2 px-3 py-3 shadow-sm flex-fill">
+              🧹 어린이 서비스
+            </a>
+          </div>
         </div>
+
       </div>
     </div>
+  </section>
 
-    <!-- 정보보호 핵심 3요소 + 중요성 설명 영역 -->
-    <section class="py-5">
-      <div class="container">
-        <h2 class="text-center fw-bold mb-5">🔐 정보보호의 핵심과 필요성 🔐</h2>
-        <div class="row align-items-center">
-          <!-- 왼쪽: 기밀성/무결성/가용성 -->
-          <div class="col-md-6 text-center">
-            <h4 class="fw-bold mb-3 equal-title">정보보호 3요소</h4>
-            <!-- <img src="image/cia-triad.png" alt="기밀성 무결성 가용성" class="img-fluid mb-4" style="max-width: 300px;"> -->
-            <div class="text-start px-3">
-              <p><strong>🔵 기밀성 (Confidentiality):</strong> 정보는 인가된 사람만 접근할 수 있어야 하며, 외부 유출을 방지해야 합니다.</p>
-              <p><strong>🟢 무결성 (Integrity):</strong> 정보가 변조되지 않고 원래의 상태를 유지해야 하며, 변경 시 반드시 추적 가능해야 합니다.</p>
-              <p><strong>⚫ 가용성 (Availability):</strong> 필요한 사람이, 필요한 시점에, 안정적으로 정보에 접근할 수 있어야 합니다.</p>
-            </div>
-          </div>
 
-          <!-- 오른쪽: 정보보호 필요성과 해킹 위험 설명 -->
-          <div class="col-md-6">
-            <div>
-              <h4 class="fw-bold mb-3 equal-title">왜 정보보호가 중요한가요?</h4>
-              <p>디지털 시대에 정보는 곧 자산입니다. 개인정보, 금융정보, 기업기밀 등 다양한 정보들이 온라인 공간에 존재하며, 이들을 보호하지 않으면 개인과 조직 모두 심각한 피해를 입을 수
-                있습니다.</p>
-              <p class="mb-2"><strong>최근 정보보안 위협 사례:</strong></p>
-              <ul>
-                <li>📌 피싱 이메일을 통한 계정 탈취</li>
-                <li>📌 랜섬웨어 감염으로 인한 데이터 손실 및 금전 요구</li>
-                <li>📌 클라우드 설정 오류로 인한 대규모 개인정보 유출</li>
-              </ul>
-              <p class="mt-3 section-important-note">
-                정보보호는 더 이상 선택이 아닌 필수입니다. 우리 모두가 관심을 가지고 함께 실천해야 합니다.
-              </p>
-            </div>
+  <!-- 정보보호 핵심 3요소 + 중요성 설명 영역 -->
+  <section class="py-5 section-fullscreen">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">🔐 정보보호의 핵심과 필요성 🔐</h2>
+      <div class="row align-items-center">
+        <!-- 왼쪽: 기밀성/무결성/가용성 -->
+        <div class="col-md-6 text-center">
+          <h4 class="fw-bold mb-3 equal-title">정보보호 3요소</h4>
+          <!-- <img src="image/cia-triad.png" alt="기밀성 무결성 가용성" class="img-fluid mb-4" style="max-width: 300px;"> -->
+          <div class="text-start px-3">
+            <p><strong>🔵 기밀성 (Confidentiality):</strong> 정보는 인가된 사람만 접근할 수 있어야 하며, 외부 유출을 방지해야 합니다.</p>
+            <p><strong>🟢 무결성 (Integrity):</strong> 정보가 변조되지 않고 원래의 상태를 유지해야 하며, 변경 시 반드시 추적 가능해야 합니다.</p>
+            <p><strong>⚫ 가용성 (Availability):</strong> 필요한 사람이, 필요한 시점에, 안정적으로 정보에 접근할 수 있어야 합니다.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- 정보보호 교육 섹션 -->
-    <section class="py-5">
-      <div class="container">
-        <h2 class="text-center fw-bold mb-5">📘 정보보호 교육 📘</h2>
-        <div class="row text-center">
-
-          <!-- 교육 카드 1 -->
-          <div class="col-md-4 mb-4">
-            <div class="card shadow-sm overflow-hidden" style="height: 350px;">
-              <img src="image/education1.jpg" class="w-100 h-100 object-fit-cover" alt="교육 이미지1">
-            </div>
-            <p class="education-caption mt-2"><a
-                href='https://kiceclass.kisia.or.kr/app/board/keys?boardKey=a77bbc1f-f082-445f-b123-6101e02089f5'
-                target="_blank">AI보안 기술개발 교육과정 교육생 모집</a></p>
-          </div>
-
-          <!-- 교육 카드 2 -->
-          <div class="col-md-4 mb-4">
-            <div class="card shadow-sm overflow-hidden" style="height: 350px;">
-              <img src="image/education2.jpg" class="w-100 h-100 object-fit-cover" alt="교육 이미지2">
-            </div>
-            <p class="education-caption mt-2"><a href='https://www.kitribob.kr/' target="_blank">차세대 보안리더 양성 프로그램</a>
+        <!-- 오른쪽: 정보보호 필요성과 해킹 위험 설명 -->
+        <div class="col-md-6">
+          <div>
+            <h4 class="fw-bold mb-3 equal-title">왜 정보보호가 중요한가요?</h4>
+            <p>디지털 시대에 정보는 곧 자산입니다. 개인정보, 금융정보, 기업기밀 등 다양한 정보들이 온라인 공간에 존재하며, 이들을 보호하지 않으면 개인과 조직 모두 심각한 피해를 입을 수
+              있습니다.</p>
+            <p class="mb-2"><strong>최근 정보보안 위협 사례:</strong></p>
+            <ul>
+              <li>📌 피싱 이메일을 통한 계정 탈취</li>
+              <li>📌 랜섬웨어 감염으로 인한 데이터 손실 및 금전 요구</li>
+              <li>📌 클라우드 설정 오류로 인한 대규모 개인정보 유출</li>
+            </ul>
+            <p class="mt-3 section-important-note">
+              정보보호는 더 이상 선택이 아닌 필수입니다. 우리 모두가 관심을 가지고 함께 실천해야 합니다.
             </p>
           </div>
-
-          <!-- 교육 카드 3 -->
-          <div class="col-md-4 mb-4">
-            <div class="card shadow-sm overflow-hidden" style="height: 350px;">
-              <img src="image/education3.png" class="w-100 h-100 object-fit-cover" alt="교육 이미지3">
-            </div>
-            <p class="education-caption mt-2"><a
-                href='https://kiceclass.kisia.or.kr/app/page/b756a611-e9f0-453f-8742-b2802640605c' target="_blank">온택트
-                융합보안</a></p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 정보보호 유관 기관 섹션 -->
-    <section class="py-5">
-      <div class="container">
-        <h2 class="text-center fw-bold mb-5">🔗 정보보호 관련 자료 🔗</h2>
-        <div class="row g-3 text-center">
-
-          <!-- 기관 1 -->
-          <div class="col-md-3 col-6">
-            <div class="border rounded p-3 h-100 d-flex align-items-center gap-2">
-              <img src="image/logo_privacyportal.png" alt="개인정보 포털" style="height: 30px;">
-              <span class="fw-medium">개인정보 포털</span>
-            </div>
-          </div>
-
-          <!-- 기관 2 -->
-          <div class="col-md-3 col-6">
-            <div class="border rounded p-3 h-100 d-flex align-items-center gap-2">
-              <img src="image/logo_kisa.png" alt="한국인터넷진흥원" style="height: 30px;">
-              <span class="fw-medium">한국인터넷진흥원</span>
-            </div>
-          </div>
-
-          <!-- 기관 3 -->
-          <div class="col-md-3 col-6">
-            <div class="border rounded p-3 h-100 d-flex align-items-center gap-2">
-              <img src="image/logo_onmadang.png" alt="개인정보 온마당" style="height: 30px;">
-              <span class="fw-medium">개인정보 온마당</span>
-            </div>
-          </div>
-
-          <!-- 기관 4 -->
-          <div class="col-md-3 col-6">
-            <div class="border rounded p-3 h-100 d-flex align-items-center gap-2">
-              <img src="image/logo_gpa.png" alt="GPA" style="height: 30px;">
-              <div class="text-start">
-                <div class="fw-bold small">GPA</div>
-                <div class="text-muted small">Global Privacy Assembly</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 기관 5 -->
-          <div class="col-md-3 col-6">
-            <div class="border rounded p-3 h-100 d-flex align-items-center gap-2">
-              <img src="image/logo_gpen.png" alt="GPEN" style="height: 30px;">
-              <div class="text-start">
-                <div class="fw-bold small">GPEN</div>
-                <div class="text-muted small">Global Privacy Enforcement Network</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 기관 6 -->
-          <div class="col-md-3 col-6">
-            <div class="border rounded p-3 h-100 d-flex align-items-center gap-2">
-              <img src="image/logo_dispute.png" alt="개인정보분쟁조정위원회" style="height: 30px;">
-              <span class="fw-medium">개인정보분쟁조정위원회</span>
-            </div>
-          </div>
-
-          <!-- 기관 7 -->
-          <div class="col-md-3 col-6">
-            <div class="border rounded p-3 h-100 d-flex align-items-center gap-2">
-              <img src="image/logo_reportcenter.png" alt="개인정보침해신고센터" style="height: 30px;">
-              <span class="fw-medium">개인정보침해신고센터</span>
-            </div>
-          </div>
-
-          <!-- 기관 8 -->
-          <div class="col-md-3 col-6">
-            <div class="border rounded p-3 h-100 d-flex align-items-center gap-2">
-              <img src="image/logo_anon.png" alt="가명정보지원플랫폼" style="height: 30px;">
-              <span class="fw-medium">가명정보지원플랫폼</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- 공지사항 및 의결사항 탭 영역 -->
-    <div class="container news_tab mt-5 mb-5 px-4 py-3 bg-white">
-      <div class="row">
-        <!-- 공지사항 섹션 -->
-        <div class="col-lg-6 mb-4">
-          <div class="d-flex gap-2 mb-3">
-            <button class="btn btn-primary rounded-pill px-4">공지사항</button>
-            <button class="btn btn-light rounded-pill px-4">보도자료</button>
-            <button class="btn btn-light rounded-pill px-4">정책브리핑</button>
-            <button class="btn btn-outline-secondary rounded-circle">+</button>
-          </div>
-          <ul class="list-unstyled">
-            <li class="d-flex justify-content-between py-1 border-bottom">
-              <span>집중관리 대상 공공시스템 목록</span>
-              <span class="text-muted">2024-01-10</span>
-            </li>
-            <li class="d-flex justify-content-between py-1 border-bottom">
-              <span>개인정보 처리방침 작성 컨설팅 안내</span>
-              <span class="text-muted">2024-09-13</span>
-            </li>
-            <li class="d-flex justify-content-between py-1 border-bottom">
-              <span>2024년 개인정보위 종합청렴도 평가 결과 공개</span>
-              <span class="text-muted">2024-12-20</span>
-            </li>
-            <li class="d-flex justify-content-between py-1 border-bottom">
-              <span>2025년 퇴직공무원 사회공헌(know-how+)</span>
-              <span class="text-muted">2025-06-05</span>
-            </li>
-            <li class="d-flex justify-content-between py-1 border-bottom">
-              <span>「개인정보 보호법 시행령」 일부개정령(안) 입법예고</span>
-              <span class="text-muted">2025-05-30</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- 의결사항 섹션 -->
-        <div class="col-lg-6 mb-4">
-          <div class="d-flex gap-2 mb-3">
-            <button class="btn btn-primary rounded-pill px-4">의결사항</button>
-            <button class="btn btn-outline-secondary rounded-circle">+</button>
-          </div>
-          <ul class="list-unstyled">
-            <li class="d-flex justify-content-between py-1 border-bottom">
-              <span>「대중문화예술산업발전법 시행규칙」 일부개정안</span>
-              <span class="text-muted">2025-06-11</span>
-            </li>
-            <li class="d-flex justify-content-between py-1 border-bottom">
-              <span>「발명진흥법 시행령」 일부개정안 개인정보 영향 평가</span>
-              <span class="text-muted">2025-05-28</span>
-            </li>
-            <li class="d-flex justify-content-between py-1 border-bottom">
-              <span>「행정심판법 시행규칙」 일부개정안 개인정보 침해요인 평가</span>
-              <span class="text-muted">2025-05-28</span>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
+  </section>
 
-    <footer class="container-fluid border-top pt-5 pb-4">
-      <div class="container">
-        <!-- 상단 영역 -->
-        <div class="row text-center align-items-start mb-4">
-          <div class="col-md-2 mb-3">
-            <div>
-              <p class="fw-bold">FAQ</p>
-              <p class="small">자주하는 질문과 답을<br>빠르게 확인하세요.</p>
-            </div>
+  <!-- 정보보호 교육 섹션 -->
+  <section class="py-5 section-fullscreen">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">📘 정보보호 교육 📘</h2>
+      <div class="row text-center">
+
+        <!-- 교육 카드 1 -->
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm overflow-hidden" style="height: 350px;">
+            <img src="image/education1.jpg" class="w-100 h-100 object-fit-cover" alt="교육 이미지1">
           </div>
-          <div class="col-md-2 mb-3">
-            <div>
-              <p class="fw-bold">통계</p>
-              <p class="small">다양한 서비스를<br>통계로 확인하세요.</p>
-            </div>
+          <p class="education-caption mt-2"><a
+              href='https://kiceclass.kisia.or.kr/app/board/keys?boardKey=a77bbc1f-f082-445f-b123-6101e02089f5'
+              target="_blank">AI보안 기술개발 교육과정 교육생 모집</a></p>
+        </div>
+
+        <!-- 교육 카드 2 -->
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm overflow-hidden" style="height: 350px;">
+            <img src="image/education2.jpg" class="w-100 h-100 object-fit-cover" alt="교육 이미지2">
           </div>
-          <div class="col-md-2 mb-3">
-            <div>
-              <p class="fw-bold">자료</p>
-              <p class="small">다양한 자료를<br>확인해보세요.</p>
-            </div>
+          <p class="education-caption mt-2"><a href='https://www.kitribob.kr/' target="_blank">차세대 보안리더 양성 프로그램</a>
+          </p>
+        </div>
+
+        <!-- 교육 카드 3 -->
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm overflow-hidden" style="height: 350px;">
+            <img src="image/education3.png" class="w-100 h-100 object-fit-cover" alt="교육 이미지3">
           </div>
-          <div class="col-md-1 d-none d-md-block">
-            <div class="vr mx-auto h-100"></div>
+          <p class="education-caption mt-2"><a
+              href='https://kiceclass.kisia.or.kr/app/page/b756a611-e9f0-453f-8742-b2802640605c' target="_blank">온택트
+              융합보안</a></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 정보보호 유관 기관 섹션 -->
+  <section class="py-5 section-fullscreen">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">🔗 정보보호 관련 자료 🔗</h2>
+      <div class="row g-3 text-center">
+
+        <!-- 기관 1 -->
+        <div class="col-md-3 col-6">
+          <div class="border rounded p-3 h-100 d-flex justify-content-center align-items-center">
+            <!-- <img src="image/logo_privacyportal.png" alt="개인정보 포털" style="height: 30px;"> -->
+            <span class="fw-medium">개인정보 포털</span>
           </div>
-          <div class="col-md-5 text-md-start text-center">
-            <p class="fw-bold fs-5">전화상담</p>
-            <div class="row small">
-              <div class="col-6">
-                <p>일반문의: <span class="fw-bold">111</span></p>
-                <p>포털 이용문의: <span class="fw-bold">02-1111-2222</span></p>
-              </div>
-              <div class="col-6">
-                <p>법령 문의: <span class="fw-bold">02-1111-2222</span></p>
-                <p>분쟁조정 문의: <span class="fw-bold">1111-2222</span></p>
-              </div>
+        </div>
+
+        <!-- 기관 2 -->
+        <div class="col-md-3 col-6">
+          <div class="border rounded p-3 h-100 d-flex align-items-center justify-content-center">
+            <!-- <img src="image/logo_kisa.png" alt="한국인터넷진흥원" style="height: 30px;"> -->
+            <span class="fw-medium">한국인터넷진흥원</span>
+          </div>
+        </div>
+
+        <!-- 기관 3 -->
+        <div class="col-md-3 col-6">
+          <div class="border rounded p-3 h-100 d-flex align-items-center justify-content-center">
+            <!-- <img src="image/logo_onmadang.png" alt="개인정보 온마당" style="height: 30px;"> -->
+            <span class="fw-medium">개인정보 온마당</span>
+          </div>
+        </div>
+
+        <!-- 기관 4 -->
+        <div class="col-md-3 col-6">
+          <div class="border rounded p-3 h-100 d-flex align-items-center justify-content-center">
+            <!-- <img src="image/logo_gpa.png" alt="GPA" style="height: 30px;"> -->
+            <div class="justify-content-center">
+              <div class="fw-bold small">GPA</div>
+              <div class="text-muted small">Global Privacy Assembly</div>
             </div>
           </div>
         </div>
 
-        <hr>
-
-        <!-- 하단 링크 -->
-        <div class="d-flex flex-wrap gap-3 small mb-2">
-          <a href="#" class="text-decoration-none text-dark">개인정보처리방침</a>
-          <a href="#" class="text-decoration-none text-dark">사이트맵</a>
-          <a href="#" class="text-decoration-none text-dark">웹접근성정책</a>
-          <a href="#" class="text-decoration-none text-dark">뷰어모음 다운로드</a>
+        <!-- 기관 5 -->
+        <div class="col-md-3 col-6">
+          <div class="border rounded p-3 h-100 d-flex align-items-center justify-content-center">
+            <!-- <img src="image/logo_gpen.png" alt="GPEN" style="height: 30px;"> -->
+            <div class="justify-content-center">
+              <div class="fw-bold small">GPEN</div>
+              <div class="text-muted small">Global Privacy Enforcement Network</div>
+            </div>
+          </div>
         </div>
 
-        <!-- 주소 -->
-        <div class="small mb-2">
-          03171 서울특별시 종로구 세종대로209 (정부서울청사 4층 개인정보보호위원회)
+        <!-- 기관 6 -->
+        <div class="col-md-3 col-6">
+          <div class="border rounded p-3 h-100 d-flex align-items-center justify-content-center">
+            <!-- <img src="image/logo_dispute.png" alt="개인정보분쟁조정위원회" style="height: 30px;"> -->
+            <span class="fw-medium">개인정보분쟁조정위원회</span>
+          </div>
         </div>
 
-        <!-- 저작권 -->
-        <div class="small mb-4">
-          Copyright © 2025 Designed by 홍혜민.
+        <!-- 기관 7 -->
+        <div class="col-md-3 col-6">
+          <div class="border rounded p-3 h-100 d-flex align-items-center justify-content-center">
+            <!-- <img src="image/logo_reportcenter.png" alt="개인정보침해신고센터" style="height: 30px;"> -->
+            <span class="fw-medium">개인정보침해신고센터</span>
+          </div>
+        </div>
+
+        <!-- 기관 8 -->
+        <div class="col-md-3 col-6">
+          <div class="border rounded p-3 h-100 d-flex align-items-center justify-content-center">
+            <!-- <img src="image/logo_anon.png" alt="가명정보지원플랫폼" style="height: 30px;"> -->
+            <span class="fw-medium">가명정보지원플랫폼</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 공지사항 및 의결사항 탭 영역 -->
+  <section class="container-fluid section-fullscreen">
+    <div class="container h-100 d-flex flex-column justify-content-center">
+      <div class="col-12">
+        <!-- 공지사항 탭 -->
+        <div class="d-flex justify-content-center gap-2 mb-4">
+          <button class="btn btn-primary rounded-pill px-4">공지사항</button>
+          <button class="btn btn-light rounded-pill px-4">보도자료</button>
+          <button class="btn btn-light rounded-pill px-4">정책브리핑</button>
+        </div>
+
+        <!-- 공지사항 리스트 -->
+        <ul class="list-unstyled">
+          <li class="d-flex justify-content-between py-2 border-bottom">
+            <span>집중관리 대상 공공시스템 목록</span>
+            <span class="text-muted">2024-01-10</span>
+          </li>
+          <li class="d-flex justify-content-between py-2 border-bottom">
+            <span>개인정보 처리방침 작성 컨설팅 안내</span>
+            <span class="text-muted">2024-09-13</span>
+          </li>
+          <li class="d-flex justify-content-between py-2 border-bottom">
+            <span>2024년 개인정보위 종합청렴도 평가 결과 공개</span>
+            <span class="text-muted">2024-12-20</span>
+          </li>
+          <li class="d-flex justify-content-between py-2 border-bottom">
+            <span>2025년 퇴직공무원 사회공헌(know-how+)</span>
+            <span class="text-muted">2025-06-05</span>
+          </li>
+          <li class="d-flex justify-content-between py-2 border-bottom">
+            <span>「개인정보 보호법 시행령」 일부개정령(안) 입법예고</span>
+            <span class="text-muted">2025-05-30</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="container-fluid border-top pt-5 pb-4 section-fullscreen">
+    <div class="container">
+      <!-- 상단 영역 -->
+      <div class="row text-center align-items-start mb-4">
+        <div class="col-md-2 mb-3">
+          <div>
+            <p class="fw-bold">FAQ</p>
+            <p class="small">자주하는 질문과 답을<br>빠르게 확인하세요.</p>
+          </div>
+        </div>
+        <div class="col-md-2 mb-3">
+          <div>
+            <p class="fw-bold">통계</p>
+            <p class="small">다양한 서비스를<br>통계로 확인하세요.</p>
+          </div>
+        </div>
+        <div class="col-md-2 mb-3">
+          <div>
+            <p class="fw-bold">자료</p>
+            <p class="small">다양한 자료를<br>확인해보세요.</p>
+          </div>
+        </div>
+        <div class="col-md-1 d-none d-md-block">
+          <div class="vr mx-auto h-100"></div>
+        </div>
+        <div class="col-md-5 text-md-start text-center">
+          <p class="fw-bold fs-5">전화상담</p>
+          <div class="row small">
+            <div class="col-6">
+              <p>일반문의: <span class="fw-bold">111</span></p>
+              <p>포털 이용문의: <span class="fw-bold">02-1111-2222</span></p>
+            </div>
+            <div class="col-6">
+              <p>법령 문의: <span class="fw-bold">02-1111-2222</span></p>
+              <p>분쟁조정 문의: <span class="fw-bold">1111-2222</span></p>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
 
-    <!-- TOP 버튼 감싸는 div -->
-    <div id="topButtonWrapper" class="position-fixed bottom-0 end-0 m-4 d-none" style="z-index: 999;">
-      <img src="image/up-arrow.png" id="topButton" class="img-fluid"
-        style="width: 60px; max-width: 15vw; height: auto; cursor: pointer;" alt="맨 위로" onclick="scrollToTop()">
+      <hr>
+
+      <!-- 하단 링크 -->
+      <div class="d-flex flex-wrap gap-3 small mb-2">
+        <a href="#" class="text-decoration-none text-dark">개인정보처리방침</a>
+        <a href="#" class="text-decoration-none text-dark">사이트맵</a>
+        <a href="#" class="text-decoration-none text-dark">웹접근성정책</a>
+        <a href="#" class="text-decoration-none text-dark">뷰어모음 다운로드</a>
+      </div>
+
+      <!-- 주소 -->
+      <div class="small mb-2">
+        03171 서울특별시 종로구 세종대로209 (정부서울청사 4층 개인정보보호위원회)
+      </div>
+
+      <!-- 저작권 -->
+      <div class="small mb-4">
+        Copyright © 2025 Designed by 홍혜민.
+      </div>
     </div>
+  </section>
 
-    <script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
       const topButtonWrapper = document.getElementById("topButtonWrapper");
 
       window.addEventListener("scroll", function () {
         if (window.scrollY > 100) {
-          topButtonWrapper.classList.remove("d-none");
+          topButtonWrapper.style.display = 'block';
         } else {
-          topButtonWrapper.classList.add("d-none");
+          topButtonWrapper.style.display = 'none';
         }
       });
 
-      function scrollToTop() {
+      document.getElementById("topButton").addEventListener("click", function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    </script>
+      });
+    });
+  </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
