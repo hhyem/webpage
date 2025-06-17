@@ -5,27 +5,37 @@
   font-style: normal;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+}
+
+#footer {
+  min-height: auto;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
 }
 
 section {
   scroll-snap-align: start;
   align-items: center;
-    height: 100vh;
+  height: 100vh;
 }
 
 .news_tab {
   font-size: 18px;
-}
-
-.footer {
-  background-color: #d9eafb;
-  color: blackF;
 }
 
 div {
@@ -126,6 +136,7 @@ div {
   transform: translateX(-50%);
   z-index: 1;
 }
+
 .center-image img {
   width: 400px;
   height: auto;
@@ -213,17 +224,3 @@ div {
 .education-caption a:hover {
   text-decoration: underline;
 }
-
-#topButtonWrapper {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 9999;
-    display: none;
-  }
-
-  #topButton {
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-  }
